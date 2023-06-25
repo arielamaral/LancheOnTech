@@ -53,5 +53,10 @@ Além das etapas do cliente, o estabelecimento precisa de um acesso administrati
 * Acompanhamento de pedidos: Deve ser possível acompanhar os pedidos em andamento e tempo de espera de cada pedido.
 
 As informações dispostas no sistema de pedidos precisarão ser gerenciadas pelo estabelecimento através de um painel administrativo.
- 
- 
+
+
+# Aos professores, seguir os passos para executar a avaliação:
+- Clone o repositório.
+- Altere a branch para fiap01: `git checkout fase01`
+- Utilize o docker-compose `docker-compose up`
+
