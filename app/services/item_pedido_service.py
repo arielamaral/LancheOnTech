@@ -1,12 +1,12 @@
 from app import db
-from app.models.itempedido import ItemPedido
+from app.models.item_pedido import Item_Pedido
 
 def cadastra_item_pedido(data):
     pedido_id = data['pedido_id']
     produto_id = data['produto_id']
     quantidade = data['quantidade']
 
-    item_pedido = ItemPedido(pedido_id=pedido_id, produto_id=produto_id, quantidade=quantidade)
+    item_pedido = Item_Pedido(pedido_id=pedido_id, produto_id=produto_id, quantidade=quantidade)
 
     db.session.add(item_pedido)
     db.session.commit()
