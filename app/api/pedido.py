@@ -5,7 +5,7 @@ from app.services.pedido_service import (
     obtem_pedido,
     lista_pedidos,
     atualiza_pedido,
-    remove_pedido
+    exclui_pedido
 )
 
 pedido_bp = Blueprint("pedido_bp", __name__, url_prefix="/pedido")
@@ -40,7 +40,7 @@ def put_pedido(id):
 
 @pedido_bp.route("/<int:id>", methods=["DELETE"])
 def delete_pedido(id):
-    sucesso = remove_pedido(id)
+    sucesso = exclui_pedido(id)
     if sucesso:
         return jsonify({"message": "Pedido removido com sucesso"})
     else:

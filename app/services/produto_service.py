@@ -13,6 +13,13 @@ def cadastra_produto(data):
 
     return produto
 
+def obtem_produto(produto_id):
+    produto = Produto.query.get(produto_id)
+    return produto
+
+def lista_produtos():
+    produtos = Produto.query.all()
+    return produtos
 
 def atualiza_produto(produto_id, data):
     produto = Produto.query.get(produto_id)
@@ -27,7 +34,6 @@ def atualiza_produto(produto_id, data):
     db.session.commit()
 
     return produto
-
 
 def exclui_produto(produto_id):
     produto = Produto.query.get(produto_id)

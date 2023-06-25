@@ -13,6 +13,13 @@ def cadastra_cliente(data):
 
     return cliente
 
+def obtem_cliente(cliente_id):
+    cliente = Cliente.query.get(cliente_id)
+    return cliente
+
+def lista_clientes():
+    clientes = Cliente.query.all()
+    return clientes
 
 def atualiza_cliente(cliente_id, data):
     cliente = Cliente.query.get(cliente_id)
@@ -27,7 +34,6 @@ def atualiza_cliente(cliente_id, data):
     db.session.commit()
 
     return cliente
-
 
 def exclui_cliente(cliente_id):
     cliente = Cliente.query.get(cliente_id)

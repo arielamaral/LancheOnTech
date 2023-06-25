@@ -36,3 +36,14 @@ def exclui_pedido(pedido_id):
     db.session.commit()
 
     return True
+
+def obtem_pedido(pedido_id):
+    pedido = Pedido.query.get(pedido_id)
+    if pedido:
+        return pedido
+    else:
+        return None
+
+def lista_pedidos():
+    pedidos = Pedido.query.all()
+    return pedidos

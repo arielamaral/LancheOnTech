@@ -5,7 +5,7 @@ from app.services.cliente_service import (
     obtem_cliente,
     lista_clientes,
     atualiza_cliente,
-    remove_cliente
+    exclui_cliente
 )
 
 cliente_bp = Blueprint("cliente_bp", __name__, url_prefix="/cliente")
@@ -40,7 +40,7 @@ def put_cliente(id):
 
 @cliente_bp.route("/<int:id>", methods=["DELETE"])
 def delete_cliente(id):
-    sucesso = remove_cliente(id)
+    sucesso = exclui_cliente(id)
     if sucesso:
         return jsonify({"message": "Cliente removido com sucesso"})
     else:

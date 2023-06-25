@@ -5,7 +5,7 @@ from app.services.produto_service import (
     obtem_produto,
     lista_produtos,
     atualiza_produto,
-    remove_produto
+    exclui_produto
 )
 
 produto_bp = Blueprint("produto_bp", __name__, url_prefix="/produto")
@@ -40,7 +40,7 @@ def put_produto(id):
 
 @produto_bp.route("/<int:id>", methods=["DELETE"])
 def delete_produto(id):
-    sucesso = remove_produto(id)
+    sucesso = exclui_produto(id)
     if sucesso:
         return jsonify({"message": "Produto removido com sucesso"})
     else:
