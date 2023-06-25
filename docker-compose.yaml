@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:5000"
+    depends_on:
+      - db
+    environment:
+      - FLASK_ENV=development
+      - FLASK_RUN_HOST=0.0.0.0
+    volumes:
+      - .:/app
+  db:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=fiap
+      - POSTGRES_PASSWORD=fiap
+      - POSTGRES_DB=fiap_db
+    volumes:
+      - db_data:/var/lib/postgresql/data
+volumes:
+  db_data:
