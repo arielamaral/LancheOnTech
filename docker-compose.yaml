@@ -11,6 +11,7 @@ services:
     environment:
       - FLASK_ENV=development
       - FLASK_RUN_HOST=0.0.0.0
+      - DATABASE_URL=postgresql://fiap:fiap@db:5432/fiap
     volumes:
       - .:/app
   db:
@@ -18,7 +19,7 @@ services:
     environment:
       - POSTGRES_USER=fiap
       - POSTGRES_PASSWORD=fiap
-      - POSTGRES_DB=fiap_db
+      - POSTGRES_DB=fiap
     volumes:
       - db_data:/var/lib/postgresql/data
 volumes:
