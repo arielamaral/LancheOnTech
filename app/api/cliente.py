@@ -13,13 +13,13 @@ cliente_bp = Blueprint("cliente_bp", __name__, url_prefix="/cliente")
 @cliente_bp.route("/", methods=["GET"])
 def get_clientes():
     clientes = lista_clientes()
-    return jsonify(clientes)
+    return jsonify([cliente.to_dict() for cliente in clientes])
 
 @cliente_bp.route("/<int:id>", methods=["GET"])
 def get_cliente(id):
     cliente = obtem_cliente(id)
     if cliente:
-        return jsonify(cliente)
+        return jsonify(cliente.to_dict())
     else:
         return jsonify({"message": "Cliente não encontrado"}), 404
 
@@ -34,7 +34,7 @@ def put_cliente(id):
     data = request.get_json()
     cliente = atualiza_cliente(id, data)
     if cliente:
-        return jsonify(cliente)
+        return jsonify(cliente.to_dict())
     else:
         return jsonify({"message": "Cliente não encontrado"}), 404
 
