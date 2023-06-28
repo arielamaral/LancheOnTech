@@ -27,7 +27,7 @@ def get_cliente(id):
 def post_cliente():
     data = request.get_json()
     cliente = cadastra_cliente(data)
-    return jsonify(cliente), 201
+    return jsonify(cliente.to_dict()), 201
 
 @cliente_bp.route("/<int:id>", methods=["PUT"])
 def put_cliente(id):
