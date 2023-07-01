@@ -6,8 +6,8 @@ class Pedido(db.Model):
 
     itens = db.relationship('Item_Pedido', backref='pedido', lazy=True)
 
-    def __repr__(self):
-        return f"<Pedido {self.id}>"
+#    def __repr__(self):
+#        return f"<Pedido {self.id}>"
 
     def to_dict(self):
         data = {c.name: getattr(self, c.name) for c in self.__table__.columns}
