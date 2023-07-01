@@ -8,3 +8,9 @@ class Pedido(db.Model):
 
     def __repr__(self):
         return f"<Pedido {self.id}>"
+
+    def to_dict(self):
+        data = {c.name: getattr(self, c.name) for c in self.__table__.columns}
+        data['itens'] = [item.to_dict() for item in self.itens]
+        return data
+
