@@ -4,6 +4,7 @@ from flask_cors import CORS
 from app.api.cliente import cliente_bp
 from app.api.produto import produto_bp
 from app.api.pedido import pedido_bp
+from app.api.pagamento import pagamento_bp
 
 def create_app():
     app = Flask(__name__)

@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify
 
-from app.services.pagamento_service import finalizar_pagamento
+from app.services.pagamento_service import processar_pagamento
 from app.models.pedido import Pedido
 
 pagamento_bp = Blueprint("pagamento", __name__, url_prefix="/pagamento")
@@ -19,7 +19,7 @@ def realizar_pagamento():
     if not pedido.tem_item_pedido():
         return jsonify({"message": "Pedido não contém itens para pagamento"}), 400
 
-    status_pagamento = finalizar_pagamento(pedido_id, metodo_pagamento, dados_pagamento)
+    status_pagamento = processar_pagamento(pedido_id, metodo_pagamento, dados_pagamento)
 
     if status_pagamento == "sucesso":
         pedido.confirmar_pagamento()
