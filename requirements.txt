@@ -6,3 +6,4 @@ Flask-Script==2.0.6
 Flask-SQLAlchemy==3.0.5
 psycopg2==2.9.6
 SQLAlchemy==1.4.25
+requests==2.26.0

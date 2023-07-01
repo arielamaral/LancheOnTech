@@ -1,4 +1,5 @@
 from flask import Blueprint, jsonify
+import requests
 
 from app.services.pagamento_service import processar_pagamento
 from app.models.pedido import Pedido
@@ -8,9 +9,9 @@ pagamento_bp = Blueprint("pagamento", __name__, url_prefix="/pagamento")
 
 @pagamento_bp.route("/", methods=["POST"])
 def realizar_pagamento():
-    pedido_id = request.json.get("pedido_id")
-    metodo_pagamento = request.json.get("metodo_pagamento")
-    dados_pagamento = request.json.get("dados_pagamento")
+    pedido_id = requests.json.get("pedido_id")
+    metodo_pagamento = requests.json.get("metodo_pagamento")
+    dados_pagamento = requests.json.get("dados_pagamento")
 
     pedido = Pedido.query.get(pedido_id)
     if not pedido or not pedido.pode_pagar():
