@@ -1,16 +1,24 @@
 from app import db
 from app.models.item_pedido import Item_Pedido
+from app.models.pedido import Pedido
+
 
 def cadastra_item_pedido(data):
     pedido_id = data['pedido_id']
-    produto_id = data['produto_id']
-    quantidade = data['quantidade']
+    itens_data = data['itens']
 
-    item_pedido = Item_Pedido(pedido_id=pedido_id, produto_id=produto_id, quantidade=quantidade)
+    for item_data in itens_data:
+        produto_id = item_data['produto_id']
+        quantidade = item_data['quantidade']
 
-    db.session.add(item_pedido)
+        item_pedido = Item_Pedido(pedido_id=pedido_id, produto_id=produto_id, quantidade=quantidade)
+        db.session.add(item_pedido)
+
     db.session.commit()
-    return item_pedido
+
+    pedido = Pedido.query.get(pedido_id)
+    return pedido
+
 
 def atualiza_item_pedido(item_pedido, data):
     produto_id = data['produto_id']
