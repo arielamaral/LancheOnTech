@@ -17,7 +17,7 @@ CREATE TABLE Pedido (
     valor_total FLOAT NOT NULL
 );
 
-CREATE TABLE Item_Pedido (
+CREATE TABLE "Item_Pedido" (
     id SERIAL PRIMARY KEY,
     pedido_id INTEGER NOT NULL,
     produto_id INTEGER NOT NULL,

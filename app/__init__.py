@@ -16,9 +16,13 @@ def create_app():
     from app.api.cliente import cliente_bp
     from app.api.produto import produto_bp
     from app.api.pedido import pedido_bp
+    from app.api.item_pedido import item_pedido_bp
+    from app.api.pagamento import pagamento_bp
 
     app.register_blueprint(cliente_bp, url_prefix='/cliente')
     app.register_blueprint(produto_bp, url_prefix='/produto')
     app.register_blueprint(pedido_bp, url_prefix='/pedido')
+    app.register_blueprint(item_pedido_bp, url_prefix='/item_pedido')
+    app.register_blueprint(pagamento_bp, url_prefix='/pagamento')
 
     return app
