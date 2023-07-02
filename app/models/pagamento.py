@@ -11,4 +11,4 @@ class Pagamento(db.Model):
         self.pedido_id = pedido_id
         self.metodo_pagamento = metodo_pagamento
         self.dados_pagamento = dados_pagamento
-        self.status_pagamento = 'Pendente'
+        self.status_pagamento = 'Confirmado'
