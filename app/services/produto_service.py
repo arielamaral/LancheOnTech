@@ -4,9 +4,9 @@ from app.models.produto import Produto
 def cadastra_produto(data):
     nome = data['nome']
     preco = data['preco']
-    quantidade = data['quantidade']
+    descricao = data['descricao']
 
-    produto = Produto(nome=nome, preco=preco, quantidade=quantidade)
+    produto = Produto(nome=nome, preco=preco, descricao=descricao)
 
     db.session.add(produto)
     db.session.commit()
@@ -29,7 +29,7 @@ def atualiza_produto(produto_id, data):
 
     produto.nome = data.get('nome', produto.nome)
     produto.preco = data.get('preco', produto.preco)
-    produto.quantidade = data.get('quantidade', produto.quantidade)
+    produto.descricao = data.get('descricao', produto.descricao)
 
     db.session.commit()
 
