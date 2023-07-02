@@ -7,8 +7,8 @@ class Pagamento(db.Model):
     dados_pagamento = db.Column(db.Text, nullable=False)
     status_pagamento = db.Column(db.String(20), nullable=False)
 
-    def __init__(self, pedido_id, metodo_pagamento, dados_pagamento):
+    def __init__(self, pedido_id, metodo_pagamento, dados_pagamento, status_pagamento):
         self.pedido_id = pedido_id
         self.metodo_pagamento = metodo_pagamento
         self.dados_pagamento = dados_pagamento
-        self.status_pagamento = 'Confirmado'
+        self.status_pagamento = status_pagamento
