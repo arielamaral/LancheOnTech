@@ -25,3 +25,12 @@ CREATE TABLE "Item_Pedido" (
     FOREIGN KEY (pedido_id) REFERENCES Pedido(id),
     FOREIGN KEY (produto_id) REFERENCES Produto(id)
 );
+
+CREATE TABLE Pagamento (
+    id SERIAL PRIMARY KEY,
+    pedido_id INTEGER NOT NULL,
+    metodo_pagamento VARCHAR(50) NOT NULL,
+    dados_pagamento TEXT NOT NULL,
+    status_pagamento VARCHAR(20) NOT NULL,
+    FOREIGN KEY (pedido_id) REFERENCES Pedido(id)
+);
