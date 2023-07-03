@@ -18,4 +18,4 @@ def atualiza_item(item_pedido_id):
 @item_pedido_bp.route("/<int:item_pedido_id>", methods=["DELETE"])
 def exclui_item(item_pedido_id):
     exclui_item_pedido(item_pedido_id)
-    return "", 204
+    return "Item do Pedido, removido com sucesso!", 204
