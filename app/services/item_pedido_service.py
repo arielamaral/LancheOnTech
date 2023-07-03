@@ -31,5 +31,12 @@ def atualiza_item_pedido(item_pedido, data):
     return item_pedido
 
 def exclui_item_pedido(item_pedido):
+    item_pedido = Item_Pedido.query.get(item_pedido)
+
+    if not item_pedido:
+        return False
+
     db.session.delete(item_pedido)
     db.session.commit()
+
+    return True
