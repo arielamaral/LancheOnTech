@@ -1,6 +1,8 @@
 from app import db
 from app.models.item_pedido import Item_Pedido
 from app.models.pedido import Pedido
+from app.models.produto import Produto
+from flask import jsonify
 
 
 def cadastra_item_pedido(data):
@@ -30,13 +32,28 @@ def atualiza_item_pedido(item_pedido, data):
     db.session.commit()
     return item_pedido
 
-def exclui_item_pedido(item_pedido):
-    item_pedido = Item_Pedido.query.get(item_pedido)
 
-    if not item_pedido:
-        return False
+def exclui_item_pedido(item_pedido_id):
+    item_pedido = Item_Pedido.query.get(item_pedido_id)
 
-    db.session.delete(item_pedido)
-    db.session.commit()
+    if item_pedido:
+        # Consiga o produto
+        produto = Produto.query.get(item_pedido.produto_id)
 
-    return True
+        if not produto:
+            return jsonify({'message': 'Produto não encontrado'}), 404
+
+        valor_total_item = produto.preco * item_pedido.quantidade
+
+        pedido = Pedido.query.get(item_pedido.pedido_id)
+        if pedido:
+            pedido.valor_total -= valor_total_item
+            if pedido.valor_total < 0:
+                pedido.valor_total = 0
+
+        db.session.delete(item_pedido)
+        db.session.commit()
+
+        return jsonify({'message': 'Item removido do pedido com sucesso'}), 200
+    else:
+        return jsonify({'message': 'ItemPedido não encontrado'}), 404
