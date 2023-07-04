@@ -54,6 +54,6 @@ def exclui_item_pedido(item_pedido_id):
         db.session.delete(item_pedido)
         db.session.commit()
 
-        return jsonify({'message': 'Item removido do pedido com sucesso'}), 200
+        return jsonify({'message': 'Item removido do pedido com sucesso'}), 204
     else:
         return jsonify({'message': 'ItemPedido não encontrado'}), 404
