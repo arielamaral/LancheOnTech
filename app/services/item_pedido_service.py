@@ -37,11 +37,10 @@ def exclui_item_pedido(item_pedido_id):
     item_pedido = Item_Pedido.query.get(item_pedido_id)
 
     if item_pedido:
-        # Consiga o produto
         produto = Produto.query.get(item_pedido.produto_id)
 
         if not produto:
-            return jsonify({'message': 'Produto não encontrado'}), 404
+            return 'Produto não encontrado'
 
         valor_total_item = produto.preco * item_pedido.quantidade
 
@@ -54,6 +53,6 @@ def exclui_item_pedido(item_pedido_id):
         db.session.delete(item_pedido)
         db.session.commit()
 
-        return jsonify({'message': 'Item removido do pedido com sucesso'}), 204
+        return 'Item do Pedido, removido com sucesso!'
     else:
-        return jsonify({'message': 'ItemPedido não encontrado'}), 404
+        return 'ItemPedido não encontrado'
