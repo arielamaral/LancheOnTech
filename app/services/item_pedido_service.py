@@ -2,7 +2,6 @@ from app import db
 from app.models.item_pedido import Item_Pedido
 from app.models.pedido import Pedido
 from app.models.produto import Produto
-from flask import jsonify
 
 
 def cadastra_item_pedido(data):
