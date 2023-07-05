@@ -57,6 +57,6 @@ As informações dispostas no sistema de pedidos precisarão ser gerenciadas pel
 
 # Aos professores, seguir os passos para executar a avaliação:
 - Clone o repositório.
-- Altere a branch para fiap01: `git checkout fase01`
+- Altere a branch para fase01: `git checkout fase01`
 - Utilize o docker-compose `docker-compose up`
 
