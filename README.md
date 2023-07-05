@@ -6,4 +6,4 @@ Projeto de Lanchonete - POS Tech
 - Altere a branch para fase01: `git checkout fase01`
 - Utilize o docker-compose `docker-compose up`
 
-***Toda a documentação da Fase01, está diponível na branch: `fase01`
+***Toda a documentação da Fase01, está diponível na branch: `fase01`***
