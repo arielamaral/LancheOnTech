@@ -75,7 +75,7 @@ Cadastrar Produto/preço, utilizar JSON:
 {
     "nome": "Hamburguer",
     "preco": 20,
-		"descricao": "Lanche"
+    "descricao": "Lanche"
 }
 
 ```
@@ -89,7 +89,7 @@ Atualizar Produto/preço, utilizar JSON:
 {
     "nome": "Hamburguer",
     "preco": 20,
-		"descricao": "Lanche"
+    "descricao": "Lanche"
 }
 
 ```
