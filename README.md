@@ -131,7 +131,6 @@ Criar Pedido (Necessário utilizar o ID do Produto cadastrado Anteriormente
 
 ```
 {
-    "pedido_id": 1,
     "itens": [
         {
             "produto_id": 1,
@@ -144,6 +143,7 @@ Criar Pedido (Necessário utilizar o ID do Produto cadastrado Anteriormente
 
     ]
 }
+
 ```
 ![CRIAR PEDIDO](https://github.com/arielamaral/LancheOnTech/blob/endpoints/CRIAR_PEDIDO.png)
 
