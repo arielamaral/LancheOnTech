@@ -103,6 +103,72 @@ Deletar Produto
 
 *Pedido:*
 
+Consultar todos os pedidos:
+
+`GET http://localhost:5000/pedido/`
+
+Criar Pedido (Necessário utilizar o ID do Produto cadastrado Anteriormente
+
+`POST http://localhost:5000/pedido/`
+
+```
+{
+    "pedido_id": 1,
+    "itens": [
+        {
+            "produto_id": 1,
+            "quantidade": 1
+        },
+        {
+            "produto_id": 2,
+            "quantidade": 1
+        }
+
+    ]
+}
+```
+
+Cancelar Pedido:
+
+`DELETE http://localhost:5000/pedido/ID`
+
+# 
+
+*ITEM PEDIDO:*
+
+Deletar items do pedido:
+
+ `DELETE http://localhost:5000/item_pedido/ID DO PRODUTO DENTRO DO PEDIDO`
+
+ #
+
+*PAGAMENTO:*
+
+Efetuar pagamento, necessita enviar JSON:
+
+`POST http://localhost:5000/pagamento/`
+
+```
+
+{
+    "pedido_id": 1,
+    "metodo_pagamento": "cartao_credito",
+    "dados_pagamento": {
+        "numero_cartao": "4111111111111111",
+        "validade": "12/2023",
+        "cvv": "123"
+    }
+}
+
+```
+
+
+
+
+
+
+
+
 
 
 
