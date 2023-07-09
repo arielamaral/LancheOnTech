@@ -21,6 +21,8 @@ Consultar todos os clientes:
 
 `GET http://localhost:5000/cliente/`
 
+![CONSULTAR_CLIENTES](https://github.com/arielamaral/LancheOnTech/blob/endpoints/CONSULTA_CLIENTE.png)
+
 Consultar cliente especifico:
 
 `GET http://localhost:5000/cliente/ID`
@@ -37,6 +39,8 @@ Cadastrar cliente, utilizar JSON:
 }
 ```
 
+![CADASTRAR_CLIENTES](https://github.com/arielamaral/LancheOnTech/blob/endpoints/CADASTRA_CLIENTE.png)
+
 Atualizar cliente, utilizar JSON: 
 
 `PUT http://localhost:5000/cliente/ID`
@@ -49,9 +53,13 @@ Atualizar cliente, utilizar JSON:
 }
 ```
 
+![ATUALIZAR_CLIENTE](https://github.com/arielamaral/LancheOnTech/blob/endpoints/ATUALIZA_CLIENTE.png)
+
 Deletar cliente
 
 `DELETE http://localhost:5000/cliente/ID`
+
+![DELETAR_CLIENTE](https://github.com/arielamaral/LancheOnTech/blob/endpoints/DELETA_CLIENTE.png)
 
 ***ID's disponíveis com o GET***
 
@@ -62,6 +70,8 @@ Deletar cliente
 Consultar todos os produtos/preços
 
 `GET http://localhost:5000/produto/`
+
+![CONSULTAR_PRODUTO](https://github.com/arielamaral/LancheOnTech/blob/endpoints/CONSULTAR_PRODUTOS.png)
 
 Consultar  produtos/preços específicos
 
@@ -81,6 +91,8 @@ Cadastrar Produto/preço, utilizar JSON:
 
 ```
 
+![CADASTRAR_PRODUTO](https://github.com/arielamaral/LancheOnTech/blob/endpoints/CADASTRAR_PRODUTO.png)
+
 Atualizar Produto/preço, utilizar JSON: 
 
 `PUT http://localhost:5000/produto/ID`
@@ -95,9 +107,13 @@ Atualizar Produto/preço, utilizar JSON:
 
 ```
 
+![ATUALIZAR_PRODUTO](https://github.com/arielamaral/LancheOnTech/blob/endpoints/ATUALIZAR_PRODUTO.png)
+
 Deletar Produto
 
 `DELETE http://localhost:5000/produto/ID`
+
+![DELETAR_PRODUTO](https://github.com/arielamaral/LancheOnTech/blob/endpoints/DELETAR_PRODUTO.png)
 
 #
 
@@ -106,6 +122,8 @@ Deletar Produto
 Consultar todos os pedidos:
 
 `GET http://localhost:5000/pedido/`
+
+![CONSULTAR_PEDIDOS](https://github.com/arielamaral/LancheOnTech/blob/endpoints/CONSULTAR_PEDIDO.png)
 
 Criar Pedido (Necessário utilizar o ID do Produto cadastrado Anteriormente
 
@@ -127,10 +145,13 @@ Criar Pedido (Necessário utilizar o ID do Produto cadastrado Anteriormente
     ]
 }
 ```
+![CRIAR PEDIDO](https://github.com/arielamaral/LancheOnTech/blob/endpoints/CRIAR_PEDIDO.png)
 
 Cancelar Pedido:
 
 `DELETE http://localhost:5000/pedido/ID`
+
+![CANCELAR_PEDIDO](https://github.com/arielamaral/LancheOnTech/blob/endpoints/CANCELAR_PEDIDO.png)
 
 # 
 
@@ -139,6 +160,8 @@ Cancelar Pedido:
 Deletar items do pedido:
 
  `DELETE http://localhost:5000/item_pedido/ID DO PRODUTO DENTRO DO PEDIDO`
+
+ ![DELETAR_ITEM_PEDIDO](https://github.com/arielamaral/LancheOnTech/blob/endpoints/REMOVER_ITEM_PEDIDO.png)
 
  #
 
@@ -149,7 +172,6 @@ Efetuar pagamento, necessita enviar JSON:
 `POST http://localhost:5000/pagamento/`
 
 ```
-
 {
     "pedido_id": 1,
     "metodo_pagamento": "cartao_credito",
@@ -159,18 +181,5 @@ Efetuar pagamento, necessita enviar JSON:
         "cvv": "123"
     }
 }
-
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
+![PAGAMENTO](https://github.com/arielamaral/LancheOnTech/blob/endpoints/PAGAMENTO_PEDIDO.png)
