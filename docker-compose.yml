@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  app:
+    container_name: app
+    build: .
+    ports:
+      - 80:80
+    restart: always
+    volumes:
+      - .:/app
+    environment:
+      - DATABASE_URL=postgres://postgres:password@localhost:5432/lanchonete
