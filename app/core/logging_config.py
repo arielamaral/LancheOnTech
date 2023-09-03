@@ -1,14 +1,22 @@
 import logging
 
-def configure_logging():
+def get_logger(name: str) -> logging.Logger:
     """
-    Funcao para configurar o log do projeto.
-    """
-    logging.basicConfig(
-        level=logging.getLevelName(Config.LOGGING_LEVEL),
-        format=Config.LOGGING_FORMAT,
-        datefmt=Config.LOGGING_DATE_FORMAT,
-    )
+    Gera um logger para a aplicação.
 
-if __name__ == "__main__":
-    configure_logging()
+    Args:
+        name: O nome do logger.
+
+    Returns:
+        O logger.
+    """
+    logger = logging.getLogger(name)
+    logger.setLevel(logging.DEBUG)
+
+    stream_handler = logging.StreamHandler()
+    stream_handler.setFormatter(logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s"))
+    logger.addHandler(stream_handler)
+
+    return logger
+
+logger = get_logger(__name__)
