@@ -1,7 +1,11 @@
-FROM python:3.9
+FROM python:3.10.4-slim
+
 WORKDIR /app
-COPY requirements.txt requirements.txt
-RUN apt-get update && apt-get install -y postgresql-client
-RUN pip install --no-cache-dir -r requirements.txt
+
+COPY requirements.txt .
+
+RUN pip install -r requirements.txt
+
 COPY . .
-CMD ["python", "main.py"]
+
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
