@@ -14,6 +14,24 @@ spec:
     spec:
       containers:
         - name: app
-          image: lancheontech
+          image: lancheontech:1.0.0
           ports:
             - containerPort: 5000
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "100Mi"
+            limits:
+              cpu: "500m"
+              memory: "500Mi"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+          env:
+            - name: ENV_VAR
+              value: "value"

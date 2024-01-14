@@ -1,0 +1,39 @@
+swagger: '2.0'
+info:
+  version: '1.0.0'
+  title: 'API de Pagamentos'
+  description: 'API para gerenciar pagamentos'
+paths:
+  /pagamentos:
+    get:
+      summary: 'Lista todos os pagamentos'
+      responses:
+        '200':
+          description: 'Lista de pagamentos'
+          schema:
+            type: 'array'
+            items:
+              $ref: '#/definitions/Pagamento'
+    post:
+      summary: 'Cria um novo pagamento'
+      parameters:
+        - in: 'body'
+          name: 'pagamento'
+          description: 'Informações do pagamento a ser criado'
+          required: true
+          schema:
+            $ref: '#/definitions/Pagamento'
+      responses:
+        '201':
+          description: 'Pagamento criado'
+definitions:
+  Pagamento:
+    type: 'object'
+    properties:
+      id:
+        type: 'integer'
+      valor:
+        type: 'number'
+      data:
+        type: 'string'
+        format: 'date-time'
