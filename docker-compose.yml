@@ -6,8 +6,9 @@ services:
     build: .
     ports:
       - 80:80
-    restart: always
+    restart: on-failure
     volumes:
       - .:/app
+      - data:/var/lib/postgresql/data
     environment:
-      - DATABASE_URL=postgres://postgres:password@localhost:5432/lanchonete
+      - DATABASE_URL
