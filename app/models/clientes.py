@@ -1,10 +1,15 @@
-from db.base import Base
+from sqlalchemy import Column, String
+from sqlalchemy.ext.declarative import declarative_base
+
+Base = declarative_base()
 
 class Cliente(Base):
     """
     Modelo para a entidade cliente.
     """
 
-    nome = sa.Column(sa.String(255), nullable=False)
-    cpf = sa.Column(sa.String(11), nullable=False)
-    email = sa.Column(sa.String(255), nullable=False)
+    __tablename__ = 'clientes'
+
+    nome = Column(String(255), nullable=False)
+    cpf = Column(String(11), nullable=False)
+    email = Column(String(255), nullable=False)
