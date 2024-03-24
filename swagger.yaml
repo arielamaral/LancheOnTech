@@ -1,10 +1,11 @@
 swagger: '2.0'
 info:
-  version: '1.0.0'
+  version: '0.0.1'
   title: 'API de Pagamentos'
   description: 'API para gerenciar pagamentos'
 paths:
   /pagamentos:
+
     get:
       summary: 'Lista todos os pagamentos'
       responses:
@@ -37,3 +38,166 @@ definitions:
       data:
         type: 'string'
         format: 'date-time'
+
+paths:
+  /clientes:
+    post:
+      summary: 'Cria um novo cliente'
+      parameters:
+        - in: 'body'
+          name: 'cliente'
+          description: 'Informações do cliente a ser criado'
+          required: true
+          schema:
+            $ref: '#/definitions/Cliente'
+      responses:
+        '201':
+          description: 'Cliente criado'
+    get:
+      summary: 'Lista todos os clientes'
+      responses:
+        '200':
+          description: 'Lista de clientes'
+          schema:
+            type: 'array'
+            items:
+              $ref: '#/definitions/Cliente'
+  /clientes/{id}:
+    get:
+      summary: 'Retorna um cliente pelo ID'
+      parameters:
+        - in: 'path'
+          name: 'id'
+          description: 'ID do cliente a ser retornado'
+          required: true
+          type: 'integer'
+      responses:
+        '200':
+          description: 'Cliente retornado'
+        '404':
+          description: 'Cliente não encontrado'
+    put:
+      summary: 'Atualiza um cliente pelo ID'
+      parameters:
+        - in: 'path'
+          name: 'id'
+          description: 'ID do cliente a ser atualizado'
+          required: true
+          type: 'integer'
+        - in: 'body'
+          name: 'cliente'
+          description: 'Informações do cliente a ser atualizado'
+          required: true
+          schema:
+            $ref: '#/definitions/Cliente'
+      responses:
+        '200':
+          description: 'Cliente atualizado'
+        '400':
+          description: 'Erro na atualização'
+    delete:
+      summary: 'Exclui um cliente pelo ID'
+      parameters:
+        - in: 'path'
+          name: 'id'
+          description: 'ID do cliente a ser excluído'
+          required: true
+          type: 'integer'
+      responses:
+        '200':
+          description: 'Cliente excluído'
+        '404':
+          description: 'Cliente não encontrado'
+definitions:
+  Cliente:
+    type: 'object'
+    properties:
+      id:
+        type: 'integer'
+      nome:
+        type: 'string'
+      email:
+        type: 'string'
+      telefone:
+        type: 'string'
+paths:
+  /produtos:
+    post:
+      summary: 'Cria um novo produto'
+      parameters:
+        - in: 'body'
+          name: 'produto'
+          description: 'Informações do produto a ser criado'
+          required: true
+          schema:
+            $ref: '#/definitions/Produto'
+      responses:
+        '201':
+          description: 'Produto criado'
+    get:
+      summary: 'Lista todos os produtos'
+      responses:
+        '200':
+          description: 'Lista de produtos'
+          schema:
+            type: 'array'
+            items:
+              $ref: '#/definitions/Produto'
+  /produtos/{id}:
+    get:
+      summary: 'Retorna um produto pelo ID'
+      parameters:
+        - in: 'path'
+          name: 'id'
+          description: 'ID do produto a ser retornado'
+          required: true
+          type: 'integer'
+      responses:
+        '200':
+          description: 'Produto retornado'
+        '404':
+          description: 'Produto não encontrado'
+    put:
+      summary: 'Atualiza um produto pelo ID'
+      parameters:
+        - in: 'path'
+          name: 'id'
+          description: 'ID do produto a ser atualizado'
+          required: true
+          type: 'integer'
+        - in: 'body'
+          name: 'produto'
+          description: 'Informações do produto a ser atualizado'
+          required: true
+          schema:
+            $ref: '#/definitions/Produto'
+      responses:
+        '200':
+          description: 'Produto atualizado'
+        '400':
+          description: 'Erro na atualização'
+    delete:
+      summary: 'Exclui um produto pelo ID'
+      parameters:
+        - in: 'path'
+          name: 'id'
+          description: 'ID do produto a ser excluído'
+          required: true
+          type: 'integer'
+      responses:
+        '200':
+          description: 'Produto excluído'
+        '404':
+          description: 'Produto não encontrado'
+definitions:
+  Produto:
+    type: 'object'
+    properties:
+      id:
+        type: 'integer'
+      nome:
+        type: 'string'
+      descricao:
+        type: 'string'
+      preco:
+        type: 'number'
